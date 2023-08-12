@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parannoul</title>
+  <link rel="stylesheet" href="flickity.css" media="screen">
+  <style>
+     header label{
+      display: flex;
+      width: 35px;
+      height: 25px;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+    } 
+
+    header label span {
+      width: 100%;
+      height: 5px;
+      background-color: white;
+      border-radius: 10px;
+      transition: transform .2s ease-in-out;
+    }
+
+    header input {
+      display: none;
+    }
+
+    header:has(input:checked) label span: first-child{
+      transform: rotateZ(37deg); 
+    }
+
+    header:has(input:checked) label span: nth-child(2) {
+      transform: scaleY(0); 
+    }
+
+    header:has(input:checked) label span: last-child{
+      transform: rotate(37deg);
+    }
+
+    header label span: first-child {
+      transform-origin: 0% 0%;
+    }
+
+    header label span: last-child {
+      transform-origin: 0% 100%;
+    }
+
+    header{
+      padding: 0px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+      background-color: rgba(36, 125, 222, 1);
+      color: white;
+
+    }
+
+    nav {
+      width: 30vw;
+      height: 100vh;
+      background-color: rgba(233, 30, 98. 0.8);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    }
+
+    nav ul {
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      list-style: none;
+      gap: 20px;
+      padding: 20px 0px 0px 20px;
+      color: white;
+      font-size: 20px;
+    }
+
+    nav a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    nav {
+      width: 30vw;
+      height: 100vh;
+      background-color: #424242;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+      transform: translateX(-100%);
+      transition: transform 0.2s ease-in-out;
+      position: fixed;
+      left: 0;
+      z-index: 2; /* 슬라이더 위에 나오도록 z-index 추가 */
+    }
+
+    header:has(input:checked) ~ nav {
+      transform: translateX(0%);
+    }
+
+    * { box-sizing: border-box; }
+
+    body { font-family: sans-serif; }
+
+    .carousel {
+      background: #FAFAFA;
+    }
+
+    .carousel-cell {
+      width: 66%;
+      height: 400px;
+      margin-right: 10px;
+      background: #333;
+    }
+
+    .carousel-cell-image {
+      display: block;
+      max-height: 100%;
+      margin: 0 auto;
+      max-width: 100%;
+      opacity: 0;
+      -webkit-transition: opacity 0.4s;
+              transition: opacity 0.4s;
+    }
+
+    /* fade in lazy loaded image */
+    .carousel-cell-image.flickity-lazyloaded,
+    .carousel-cell-image.flickity-lazyerror {
+      opacity: 1;
+    }
+
+    .menu-open {
+      overflow: hidden; /* 슬라이더 내용이 밀려 나갈 때 오버플로우를 숨김 */
+      z-index: 1; /* 슬라이더 위로 햄버거 메뉴가 나오도록 z-index 추가 */
+    }
+
+    .carousel {
+      width: 100%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  </style>
+  <script src="flickity.pkgd.js"></script>
+</head>
+<body>
+	<header>
+      <label for="checkbox">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+      <input type="checkbox" id="checkbox" />
+      <h1>Parannoul's Homepage</h1>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="https://www.youtube.com/channel/UC7dSgh4tqzqk1bFxYW4If2A">Youtube</a></li>
+        <li><a href="https://parannoul.tistory.com/">blog</a></li>
+        <li><a href="/https://www.instagram.com/parannoul/">Instagram</a></li>
+      </ul>
+    </nav>
+    <div class="carousel" data-flickity='{ "lazyLoad": true }'>
+      <div class="carousel-cell">
+        <a href="https://www.topshelfrecords.com/products/737381-parannoul-after-the-magic">
+          <img class="carousel-cell-image" data-flickity-lazyload="https://f4.bcbits.com/img/a2508246977_16.jpg" alt="Slide 1">
+        </a>
+      </div>
+      <div class="carousel-cell">
+        <a href="https://parannoul.bandcamp.com/music">
+          <img class="carousel-cell-image" data-flickity-lazyload="https://i.namu.wiki/i/Vst52kqVPKZJ38loc_Tprt3OWvU17MsPE8uBs5JVhvYw-Z2WT5QO32Z4S8xX8rRKWjhuRXoYt4g9QBnDL5DzTIiwxqnrxqMdKCBJYVxehsXjLq-x-kDy17TONUAg0lKTVeysL12SXtihJ8seTfrrbg.webp" alt="Slide 2">
+        </a>
+      </div>
+      <div class="carousel-cell">
+        <a href="https://poclanos.com/artist/%ED%8C%8C%EB%9E%80%EB%85%B8%EC%9D%84/">
+          <img class="carousel-cell-image" data-flickity-lazyload="https://poclanos.com/drmvsn/wp-content/uploads/2021/04/%ED%8C%8C%EB%9E%80%EB%85%B8%EC%9D%84_%EC%95%84%ED%8B%B0%EC%8A%A4%ED%8A%B8-%EC%9D%B4%EB%AF%B8%EC%A7%80-%ED%8F%AC%ED%81%AC%EB%9D%BC%EB%85%B8%EC%8A%A4-%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80-only.jpg" alt="Slide 3">
+        </a>
+      </div>
+      <div class="carousel-cell">
+        <a href="https://parannoul.bandcamp.com/album/white-ceiling-black-dots-wandering-around">
+          <img class="carousel-cell-image" data-flickity-lazyload="img1.jpeg" alt="Slide 4">
+        </a>
+      </div>
+    </div>
+    <script src="paranoul.js"></script>
+</body>
+</html>
