@@ -144,23 +144,27 @@
 
     @media screen and (max-width: 768px) {
       header {
-        padding: 10px; /* 헤더의 패딩 조정 */
-        font-size: 16px; /* 헤더 글자 크기 조정 */
+        padding: 5px 10px; /* 헤더 크기 조절 */
+      }
+
+      h1 {
+        font-size: 18px; /* 헤더 제목 폰트 크기 조절 */
       }
 
       .slideshow-container {
-        margin-top: 60px; /* 헤더 높이만큼 마진을 주어 겹치지 않도록 조정 */
+        max-width: 90%; /* 슬라이더 크기 조절 */
       }
 
-      nav {
-        width: 100vw; /* 네비게이션 바 가로폭을 화면 너비에 맞게 설정 */
+      .carousel-cell {
+        width: 90%; /* 슬라이더 셀 크기 조절 */
+        height: 300px; /* 슬라이더 셀 높이 조절 */
       }
 
       nav ul {
-        padding: 10px 0px 0px 10px; /* 네비게이션 바 글자 간격과 패딩 조정 */
-        font-size: 14px; /* 네비게이션 바 글자 크기 조정 */
+        font-size: 16px; /* 네비게이션 바 글자 폰트 크기 조절 */
       }
     }
+  }
   </style>
   <script src="flickity.pkgd.js"></script>
 </head>
