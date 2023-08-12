@@ -141,6 +141,25 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+
+    @media screen and (max-width: 768px) {
+      header {
+        padding: 10px; /* 헤더의 패딩 조정 */
+        font-size: 16px; /* 헤더 글자 크기 조정 */
+      }
+
+      .slideshow-container {
+        margin-top: 60px; /* 헤더 높이만큼 마진을 주어 겹치지 않도록 조정 */
+      }
+
+      nav {
+        width: 100vw; /* 네비게이션 바 가로폭을 화면 너비에 맞게 설정 */
+      }
+
+      nav ul {
+        padding: 10px 0px 0px 10px; /* 네비게이션 바 글자 간격과 패딩 조정 */
+        font-size: 14px; /* 네비게이션 바 글자 크기 조정 */
+      }
     }
   </style>
   <script src="flickity.pkgd.js"></script>
